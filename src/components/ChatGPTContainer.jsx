@@ -32,7 +32,7 @@ const ChatGPTContainer = () => {
     setIsMessagesLoading(true);
 
     try {
-      const { data } = await axios.post("/api/chatai/chat", { message: text });
+      const { data } = await axios.post("/chatai/chat", { message: text });
 
       const botMessage = {
         role: "bot",
