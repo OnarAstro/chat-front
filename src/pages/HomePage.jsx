@@ -1,12 +1,12 @@
 import ChatContainer from "../components/ChatContainer";
+import ChatGPTContainer from "../components/ChatGPTContainer";
 import NoChatSelected from "../components/NoChatSelected";
 import Sidebar from "../components/Sidebar";
 import { useChatStore } from "../store/useChatStore";
 
 const HomePage = () => {
-  
   const { selectedUser } = useChatStore();
-  
+
   return (
     <div className="h-screen bg-base-200">
       <div className="flex items-center justify-center pt-20 px-4">
@@ -14,15 +14,19 @@ const HomePage = () => {
           <div className="flex h-full rounded-lg overflow-hidden">
             <Sidebar />
 
-            {!selectedUser ? <NoChatSelected /> : <ChatContainer />}
+            {!selectedUser ? (
+              <NoChatSelected />
+            ) : selectedUser._id === "chatgpt" ? (
+              <ChatGPTContainer />
+            ) : (
+              <ChatContainer />
+            )}
 
           </div>
-
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
