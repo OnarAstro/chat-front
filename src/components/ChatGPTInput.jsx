@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
 import toast from "react-hot-toast";
-import axios from "axios";
 
 const ChatGPTInput = () => {
   const [text, setText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState(null);
+
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
@@ -16,7 +17,7 @@ const ChatGPTInput = () => {
     setResponse(null);
 
     try {
-      const res = await axios("/chatai/chat", {
+      const res = await fetch(`${API_URL}/api/chatai/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text.trim() }),
