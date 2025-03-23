@@ -3,12 +3,12 @@
   "name": "Chatro",
   "icons": [
     {
-      "src": "avatar.png",
+      "src": "chatro.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "avatar.png",
+      "src": "chatro.png",
       "sizes": "512x512",
       "type": "image/png"
     }
